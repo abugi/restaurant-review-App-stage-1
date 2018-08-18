@@ -1,0 +1,49 @@
+@media screen and (max-width: 500px) {
+
+    body,td,th,p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        line-height: 1.4;
+    }
+    
+    
+    nav h1 a {
+    font-size: 12pt;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    }
+
+     /* ====================== Breadcrumb ====================== */
+   #breadcrumb {
+        padding: 10px 40px 16px;
+        list-style: none;
+        background-color: red;
+        font-size: 17px;
+        margin: 0;
+        width: calc(50% - 80px);
+    }
+
+    /* ====================== Restaurant Filtering ====================== */
+    .filter-options select {
+    font-size: 10pt;
+    height: 30px;
+    width: 170px;
+    }
+
+    /* ====================== Restaurant Listing ====================== */
+    #restaurants-list {
+    width: 80%;
+    display: block;
+    margin: 1% auto;
+    padding: 5% 2% 7%;
+    text-align: center;
+    }
+
+
+    #restaurants-list li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 7%;
+    }
+
+}
