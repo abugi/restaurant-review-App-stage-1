@@ -9,20 +9,8 @@ TO DO:
 //Create cache
 const cacheName = 'restReviewCache-v3';
 
-// const cacheAssets = [
-//     'index.html',
-//     '/css/styles.css'
-// ]
-
 //Call the Service worker Install event
 self.addEventListener('install', (e) => {
-//    e.waitUntil(
-//        caches.open(cacheName)
-//        .then(cache => {
-//            cache.addAll(cacheAssets);
-//        })
-//        .then(self.skipWaiting())
-//    )
 });
 
 //Call the service worker activate event
@@ -43,8 +31,6 @@ self.addEventListener('activate', (e) => {
 
 // call Fecth Event
 self.addEventListener('fetch', e => {
-    // e.respondWith(fetch(e.request)
-    // .catch(() => caches.match(e.request)));
     e.respondWith(
         fetch(e.request)
         .then(res => {
