@@ -1,6 +1,28 @@
+/* 
+TO DO:
+ - Check if Service Worker is supported by the browser
+ - Register Service Worker
+
+*/
+
+//Check for browser support
+if(navigator.serviceWorker){
+
+  //Register Service Worker
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('../sw.js')
+      .then(reg => console.log('Service worker registered'))  //Confirm service worker registration
+      .catch(err => console.log(`service worker not registered: ${err}`));
+  })
+  
+}else{
+  console.log('Serevice worker is not suppoted: Pleaseupdate your browser')
+}
+
 let restaurants,
-  neighborhoods,
-  cuisines
+    neighborhoods,
+    cuisines
+
 var newMap
 var markers = []
 
@@ -88,18 +110,7 @@ initMap = () => {
 
   updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
+
 
 /**
  * Update page and map for current restaurants.
@@ -198,14 +209,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 } 
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
-  });
-} */
-
