@@ -267,21 +267,32 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
+  padding: 2%;
   position: relative;
   width: 85%;
 }
 #reviews-list li p {
   margin: 0 0 10px;
 }
+
+#reviews-list li p:nth-child(1) {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #f58500;
+}
+
+#reviews-list li p:nth-child(2) {
+  font-style: italic;
+}
 #restaurant-hours td {
   color: #666;
 }
+
 
 @media screen and (max-width: 650px){
   #restaurant-name {
@@ -297,5 +308,9 @@ nav h1 a {
   #restaurant-cuisine {
     font-size: 11pt;
     width: 70%;
+  }
+
+  #reviews-list li {
+    width: 100%;
   }
 }
