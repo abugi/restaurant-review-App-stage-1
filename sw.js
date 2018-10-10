@@ -7,7 +7,10 @@ TO DO:
 */
 
 //Create cache
-const cacheName = 'restReviewCache-v3';
+const cacheName = 'restReviewCache-v1';
+const appShell = [
+    
+];
 
 //Call the Service worker Install event
 self.addEventListener('install', (e) => {

@@ -6,18 +6,18 @@ TO DO:
 */
 
 //Check for browser support
-if(navigator.serviceWorker){
+// if(navigator.serviceWorker){
 
-  //Register Service Worker
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('../sw.js')
-      .then(reg => console.log('Service worker registered'))  //Confirm service worker registration
-      .catch(err => console.log(`service worker not registered: ${err}`));
-  })
+//   //Register Service Worker
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('../sw.js')
+//       .then(reg => console.log('Service worker registered'))  //Confirm service worker registration
+//       .catch(err => console.log(`service worker not registered: ${err}`));
+//   })
   
-}else{
-  console.log('Serevice worker is not suppoted: Pleaseupdate your browser')
-}
+// }else{
+//   console.log('Serevice worker is not suppoted: Pleaseupdate your browser')
+// }
 
 let restaurants,
     neighborhoods,
