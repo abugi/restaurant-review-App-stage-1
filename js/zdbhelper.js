@@ -8,27 +8,36 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8080 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    // const port = 8080 // Change this to your server port
+    // return `http://localhost:${port}/data/restaurants.json`;
+   return 'http://localhost:1337/restaurants';
   }
 
   /**
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
+    var dataReceived = false;
+
+    fetch(DBHelper.DATABASE_URL)
+      .then( response => {
+        return response.json()
+      })
+      .then(restaurants => {
+        dataReceived = true;
+        console.log('From web', restaurants);
         callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
+      });
+
+      if('indexedDB' in window){
+        readData('restaurants')
+          .then( restaurants => {
+            if(!dataReceived){
+              console.log('From cache', restaurants);
+              callback(null, restaurants);
+            }
+          })
       }
-    };
-    xhr.send();
   }
 
   /**
@@ -40,12 +49,12 @@ class DBHelper {
       if (error) {
         callback(error, null);
       } else {
-        const restaurant = restaurants.find(r => r.id == id);
-        if (restaurant) { // Got the restaurant
-          callback(null, restaurant);
-        } else { // Restaurant does not exist in the database
-          callback('Restaurant does not exist', null);
-        }
+          const restaurant = restaurants.find(r => r.id == id);
+          if (restaurant) { // Got the restaurant
+            callback(null, restaurant);
+          } else { // Restaurant does not exist in the database
+            callback('Restaurant does not exist', null);
+          }
       }
     });
   }
@@ -150,7 +159,7 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    return (`/img/${restaurant.id}.jpg`);
   }
 
   /**
