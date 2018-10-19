@@ -10,8 +10,8 @@ TO DO:
 */
 
 //Create cache
-const static = 'restReviewStatic-v16';
-const dynamic = 'restReviewDynamic-v2';
+const static = 'restReviewStatic-v35';
+const dynamic = 'restReviewDynamic-v3';
 const appShell = [
     '/',
     '/index.html',
