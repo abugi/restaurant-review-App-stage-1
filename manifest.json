@@ -35,7 +35,7 @@
         {
             "src": "/img/icons/app-icon-512x512.png",
             "type": "images/png",
-            "sizes": "48x48"
+            "sizes": "512x512"
         }
     ],
     "start_url": "/index.html",
@@ -43,7 +43,7 @@
     "display": "standalone",
     "orientation": "portrait-primary",
     "background_color": "#fff",
-    "theme_color": "#f18200",
+    "theme_color": "#252831",
     "description": "A simple restaurant review application",
     "dir": "ltr",
     "lang": "en-US"
