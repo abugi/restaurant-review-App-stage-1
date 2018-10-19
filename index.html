@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#252831" />
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="css/styles.css">
@@ -11,6 +12,11 @@
   <link rel="stylesheet" href="css/phablet.css">
   <link rel="stylesheet" href="css/mobile.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+  <style>
+     .leaflet-container a {
+      color: #0011A8;
+    }
+  </style>
   <title>Restaurant Reviews</title>
 </head>
 
@@ -26,11 +32,13 @@
       <div id="map" role="application"></div>
     </section>
     <section>
-      <div class="filter-options" role="section">
+      <div class="filter-options" role="listbox">
         <h2>Filter Results</h2>
+        <label for="neighborhoods-select">Neighborhoods: </label>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
+        <label for="cuisines-select">Cuisines: </label>
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
