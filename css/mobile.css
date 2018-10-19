@@ -30,6 +30,10 @@
     width: 170px;
     }
 
+    .filter-options label {
+        width: 120px;
+        display: inline-block;
+    }
     /* ====================== Restaurant Listing ====================== */
     #restaurants-list {
     width: 80%;
