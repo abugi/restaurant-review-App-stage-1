@@ -3,46 +3,39 @@
  */
 class DBHelper {
 
-  /**
+  /*
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    // const port = 8080 // Change this to your server port
-    // return `http://localhost:${port}/data/restaurants.json`;
    return 'http://localhost:1337/restaurants';
   }
 
-  /**
-   * Fetch all restaurants.
-   */
+  //TODO: Fetch all restaurants.
   static fetchRestaurants(callback) {
-    var dataReceived = false;
+    let dataReceived = false;
 
     fetch(DBHelper.DATABASE_URL)
       .then( response => {
-        return response.json()
+        return response.json();
       })
       .then(restaurants => {
         dataReceived = true;
-        console.log('From web', restaurants);
         callback(null, restaurants);
       });
 
+      //TODO: Get dynamic data from indexedDB
       if('indexedDB' in window){
         readData('restaurants')
           .then( restaurants => {
             if(!dataReceived){
-              console.log('From cache', restaurants);
               callback(null, restaurants);
             }
-          })
+          });
       }
   }
 
-  /**
-   * Fetch a restaurant by its ID.
-   */
+  //TODO: Fetch a restaurant by its ID.
   static fetchRestaurantById(id, callback) {
     // fetch all restaurants with proper error handling.
     DBHelper.fetchRestaurants((error, restaurants) => {
@@ -59,9 +52,7 @@ class DBHelper {
     });
   }
 
-  /**
-   * Fetch restaurants by a cuisine type with proper error handling.
-   */
+  //TODO: Fetch restaurants by a cuisine type with proper error handling.
   static fetchRestaurantByCuisine(cuisine, callback) {
     // Fetch all restaurants  with proper error handling
     DBHelper.fetchRestaurants((error, restaurants) => {
@@ -75,9 +66,7 @@ class DBHelper {
     });
   }
 
-  /**
-   * Fetch restaurants by a neighborhood with proper error handling.
-   */
+  //TODO: Fetch restaurants by a neighborhood with proper error handling.
   static fetchRestaurantByNeighborhood(neighborhood, callback) {
     // Fetch all restaurants
     DBHelper.fetchRestaurants((error, restaurants) => {
@@ -91,9 +80,7 @@ class DBHelper {
     });
   }
 
-  /**
-   * Fetch restaurants by a cuisine and a neighborhood with proper error handling.
-   */
+  //TODO: Fetch restaurants by a cuisine and a neighborhood with proper error handling.
   static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) {
     // Fetch all restaurants
     DBHelper.fetchRestaurants((error, restaurants) => {
@@ -112,9 +99,7 @@ class DBHelper {
     });
   }
 
-  /**
-   * Fetch all neighborhoods with proper error handling.
-   */
+  //TODO: Fetch all neighborhoods with proper error handling.
   static fetchNeighborhoods(callback) {
     // Fetch all restaurants
     DBHelper.fetchRestaurants((error, restaurants) => {
@@ -130,9 +115,7 @@ class DBHelper {
     });
   }
 
-  /**
-   * Fetch all cuisines with proper error handling.
-   */
+  //TODO: Fetch all cuisines with proper error handling.
   static fetchCuisines(callback) {
     // Fetch all restaurants
     DBHelper.fetchRestaurants((error, restaurants) => {
@@ -148,23 +131,17 @@ class DBHelper {
     });
   }
 
-  /**
-   * Restaurant page URL.
-   */
+  //Restaurant page URL.
   static urlForRestaurant(restaurant) {
     return (`./restaurant.html?id=${restaurant.id}`);
   }
 
-  /**
-   * Restaurant image URL.
-   */
+  //Restaurant image URL.
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.id}.jpg`);
   }
 
-  /**
-   * Map marker for a restaurant.
-   */
+  //Map marker for a restaurant.
    static mapMarkerForRestaurant(restaurant, map) {
     // https://leafletjs.com/reference-1.3.0.html#marker  
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng],
@@ -175,16 +152,5 @@ class DBHelper {
       marker.addTo(newMap);
     return marker;
   } 
-  /* static mapMarkerForRestaurant(restaurant, map) {
-    const marker = new google.maps.Marker({
-      position: restaurant.latlng,
-      title: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant),
-      map: map,
-      animation: google.maps.Animation.DROP}
-    );
-    return marker;
-  } */
-
 }
 
