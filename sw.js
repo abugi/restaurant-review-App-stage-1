@@ -3,14 +3,14 @@ importScripts('js/indexDB.js');
 
 /*
 TO DO:
-- Create cache
-- Add all response items to cache
+- Open a cache
+- Add all items making up the to cache
 - Remove old cached items
 
 */
 
-//Create cache
-const static = 'restReviewStatic-v35';
+//Create and add static files to cache
+const static = 'restReviewStatic-v41';
 const dynamic = 'restReviewDynamic-v3';
 const appShell = [
     '/',
@@ -49,7 +49,7 @@ const appShell = [
     'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
 ];
 
-//Helper function to trim dynamic cache items
+//TODO: Trim dynamic cache to remove old items
 const trimCache = (cacheName, maxItems) => {
     caches.open(cacheName)
         .then(cache => {
