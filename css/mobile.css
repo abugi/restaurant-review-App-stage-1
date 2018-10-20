@@ -15,7 +15,6 @@
     text-transform: uppercase;
     }
 
-    /* ====================== Breadcrumb ====================== */
    #breadcrumb {
         padding: 10px 40px 16px;
         list-style: none;
@@ -25,7 +24,6 @@
         width: calc(50% - 80px);
     }
 
-    /* ====================== Restaurant Filtering ====================== */
     .filter-options select {
     font-size: 10pt;
     height: 30px;
@@ -37,7 +35,6 @@
         display: inline-block;
     }
 
-    /* ====================== Restaurant Listing ====================== */
     #restaurants-list {
     width: 80%;
     display: block;

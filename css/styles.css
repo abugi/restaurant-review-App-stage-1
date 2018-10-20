@@ -81,7 +81,7 @@ section {
   text-align: center;
   text-transform: uppercase;
 }
-/* ====================== Navigation ====================== */
+
 nav {
   width: 100%;
   background-color: #252831;
@@ -106,7 +106,6 @@ nav h1 a {
   width: 100%;
 }
 
-/* Display list items side by side */
 #breadcrumb li {
   display: inline;
 }
@@ -118,7 +117,6 @@ nav h1 a {
   content: "/\00a0";
 }
 
-/* Add a color to all links inside the list */
 #breadcrumb li a {
   color: #0275d8;
   text-decoration: none;
@@ -130,14 +128,12 @@ nav h1 a {
   text-decoration: underline;
 }
 
-/* ====================== Map ====================== */
 #map {
   height: 400px;
   width: 100%;
   background-color: #ccc;
 }
 
-/* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
   padding: 1% 0;
@@ -166,7 +162,6 @@ label {
   width: 200px;
 }
 
-/* ====================== Restaurant Listing ====================== */
 #restaurants-list {
   width: 85%;
   display: flex;
@@ -227,7 +222,6 @@ label {
   text-transform: uppercase;
 }
 
-/* ====================== Restaurant Details ====================== */
 .inside header {
   position: sticky;
   top: 0;
@@ -241,7 +235,6 @@ label {
   right: unset;
   top: unset;
   width: 100%;
-  /* margin-top: 150px; */
 }
 
 .inside #map {
@@ -366,4 +359,4 @@ label {
     width: 100%;
   }
 
-} /* Media Quey end */
+}

@@ -1,5 +1,4 @@
-@media screen and (min-width: 500px) and (max-width: 680px){
-     /* ====================== Restaurant Listing ====================== */
+@media screen and (min-width: 500px) and (max-width: 680px) {
     #restaurants-list {
         padding: 5% 8% 7%;
     }
