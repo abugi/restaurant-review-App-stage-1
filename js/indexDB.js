@@ -1,14 +1,14 @@
-//Helper function for creating a database with data stores
+//TODO: Create new database and database stores
 const dbPromise = idb.open('restaurant-review', 1, db => {
     if (!db.objectStoreNames.contains('restaurants')) {
         db.createObjectStore('restaurants', { keyPath: 'id' });
     }
 });
 
-//Helper function to write data into IndexedDB
+//TODO: Write data into IndexedDB
 const writeData = (dbStore, restaurants) => {
     return dbPromise
-        .then( db => {
+        .then(db => {
             let tx = db.transaction(dbStore, 'readwrite');
             let store = tx.objectStore(dbStore);
             store.put(restaurants);
@@ -16,6 +16,7 @@ const writeData = (dbStore, restaurants) => {
         });
 }
 
+//TODO: Read data from IndexedDB
 const readData = (dbStore) => {
     return dbPromise
         .then( db => {
